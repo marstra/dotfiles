@@ -8,8 +8,9 @@ function link (){
 	dstDir=$(dirname $dst)
 	mkdir -p $dstDir
 	rm $dst
+	echo "make link from $src to $dst"
 	ln -s $src $dst
 }
 
-link terminator/config ~/.configs/terminator/config
+link terminator/config ~/.config/terminator/config
 link git/.gitconfig ~/.gitconfig

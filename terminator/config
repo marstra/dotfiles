@@ -11,4 +11,8 @@
 [plugins]
 [profiles]
   [[default]]
+    background_color = "#002b36"
     cursor_color = "#aaaaaa"
+    font = Hack Nerd Font Mono 10
+    foreground_color = "#839496"
+    use_system_font = False
