@@ -14,3 +14,4 @@ function link (){
 
 link terminator/config ~/.config/terminator/config
 link git/.gitconfig ~/.gitconfig
+link zsh/.zshrc ~/.zshrc

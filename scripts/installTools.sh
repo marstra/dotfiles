@@ -7,4 +7,5 @@ sudo apt -y install git curl wget
 sudo apt -y install build-essential emacs vim tmux xclip zsh terminator ranger htop
 # sudo apt -y install i3 chromium-browser
 
-# TODO set zsh as default shell, install oh-my-zsh and powerlevel9k zsh theme
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
