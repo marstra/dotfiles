@@ -236,14 +236,14 @@ there's a region, all lines that region covers will be duplicated."
 	       "C-S-<left>" "C-S-<up>" "C-S-<down>"))
   (define-key org-mode-map (kbd key) nil))
 
-(use-package tex :ensure auctex)
-(add-hook 'LaTeX-mode-hook #'turn-on-flyspell)
+;; (use-package tex :ensure auctex)
+;; (add-hook 'LaTeX-mode-hook #'turn-on-flyspell)
 
 (use-package auto-complete
   :ensure t)
 
-(use-package auto-complete-auctex
-  :ensure t)
+;; (use-package auto-complete-auctex
+;;  :ensure t)
 
 ;; fancy python mode
 ;; requires:
@@ -283,16 +283,6 @@ there's a region, all lines that region covers will be duplicated."
 (use-package git-gutter
   :ensure t
   :config (global-git-gutter-mode +1))
-
-;; Erlaubt PDFs in emacs anzuschauen. Ist ein guter PDF viewer und kann
-;; mit auto-revert mode auch auto refresh. Mit emacs unter windows ist
-;; das installieren bisschen blöd, aber unter linux und wsl sollte das
-;; bauen ohne Probleme funktioneren
-(use-package pdf-tools
-  :ensure t
-  :config
-  (pdf-tools-install)
-  (add-to-list 'auto-mode-alist '("\\.vpdf\\'" . pdf-virtual-view-mode)))
 
 ;; TODO use package properly
 ;; (use-package highlight-indent-guides

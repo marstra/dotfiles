@@ -103,3 +103,5 @@ alias xc="xclip -selection clipboard"
 alias xco="xclip -selection clipboard -o"
 alias xcm="xclip"
 alias xcmo="xclip -o"
+
+alias em="emacs -nw"
