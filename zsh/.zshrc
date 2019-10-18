@@ -98,3 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias xc="xclip -selection clipboard"
+alias xco="xclip -selection clipboard -o"
+alias xcm="xclip"
+alias xcmo="xclip -o"
