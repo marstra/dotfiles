@@ -155,6 +155,9 @@ there's a region, all lines that region covers will be duplicated."
 (use-package magit
   :ensure t)
 
+(use-package gruvbox-theme
+  :ensure t)
+
 ;; (use-package ledger-mode
   ;; :ensure t)
 
