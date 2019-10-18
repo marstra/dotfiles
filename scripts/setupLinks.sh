@@ -7,7 +7,7 @@ function link (){
 	dst=$2
 	dstDir=$(dirname $dst)
 	mkdir -p $dstDir
-	rm $dst
+	rm -rf $dst
 	echo "make link from $src to $dst"
 	ln -s $src $dst
 }
@@ -15,3 +15,4 @@ function link (){
 link terminator/config ~/.config/terminator/config
 link git/.gitconfig ~/.gitconfig
 link zsh/.zshrc ~/.zshrc
+link emacs/.emacs.d ~/.emacs.d
