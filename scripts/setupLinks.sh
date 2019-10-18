@@ -17,3 +17,5 @@ link git/.gitconfig ~/.gitconfig
 link zsh/.zshrc ~/.zshrc
 link zsh/.zshenv ~/.zshenv
 link emacs/.emacs.d ~/.emacs.d
+link vim/.vimrc ~/.vimrc
+link vim/.vim ~/.vim
