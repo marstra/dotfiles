@@ -15,4 +15,5 @@ function link (){
 link terminator/config ~/.config/terminator/config
 link git/.gitconfig ~/.gitconfig
 link zsh/.zshrc ~/.zshrc
+link zsh/.zshenv ~/.zshenv
 link emacs/.emacs.d ~/.emacs.d
