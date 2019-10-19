@@ -105,3 +105,4 @@ alias xcm="xclip"
 alias xcmo="xclip -o"
 
 alias em="emacs -nw"
+alias rg="ranger"

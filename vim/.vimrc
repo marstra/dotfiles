@@ -20,10 +20,10 @@ set ruler
 " Enable line numbers
 set number
 " Use relative line numbers
-if exists("&relativenumber")
-        set relativenumber
-        au BufReadPost * set relativenumber
-endif
+"  if exists("&relativenumber")
+"          set relativenumber
+"          au BufReadPost * set relativenumber
+"  endif
 
 " Enable syntax highlighting
 syntax on
