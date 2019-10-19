@@ -226,18 +226,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
-    -- https://github.com/deficient/battery-widget
-    local battery_widget = require("battery-widget")
-    local battery_status = battery_widget {
-       adapter = "BAT0",
-       ac = "AC"
-    }
-
     rightWidgets = {layout = wibox.layout.fixed.horizontal}
-    -- check wether pc has battery
-    if battery_status:discover()[1] then
-       table.insert(rightWidgets, battery_status)
-    end
     table.insert(rightWidgets, mykeyboardlayout)
     table.insert(rightWidgets, wibox.widget.systray())
     table.insert(rightWidgets, mytextclock)
@@ -655,14 +644,3 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
-local function file_exists(command)
-    local f = io.open(command)
-    if f then f:close() end
-    return f and true or false
-end
-
-local_config = "/home/markus/repos/configs/awesome/localconfig.lua"
-if file_exists(local_config) then
-   require("localconfig")
-end
