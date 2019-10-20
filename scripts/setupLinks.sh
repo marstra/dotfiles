@@ -30,3 +30,6 @@ link emacs/.emacs.d ~/.emacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
 link awesome ~/.config/awesome
+rootlink gdm3/monitors.xml /var/lib/gdm3/.config/monitors.xml
+sudo chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
+rootlink gdm3/custom.conf /etc/gdm3/custom.conf
