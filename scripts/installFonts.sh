@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 tmpDir=$(mktemp -d)
 cd $tmpDir
 # install nerd-font hack

@@ -1,15 +1,25 @@
 #!/bin/bash
-
+set -e
 BASE_DIR=$(realpath "$(dirname $(readlink -f $0))/..")
 
 function link (){
-	src="$BASE_DIR/$1"
-	dst=$2
-	dstDir=$(dirname $dst)
-	mkdir -p $dstDir
-	rm -rf $dst
-	echo "make link from $src to $dst"
-	ln -s $src $dst
+    src="$BASE_DIR/$1"
+    dst=$2
+    dstDir=$(dirname $dst)
+    echo "make link from $src to $dst"
+    mkdir -p $dstDir
+    rm -rf $dst
+    ln -s $src $dst
+}
+
+function rootlink (){
+    src="$BASE_DIR/$1"
+    dst=$2
+    dstDir=$(dirname $dst)
+    echo "make link as root from $src to $dst"
+    sudo mkdir -p $dstDir
+    sudo rm -rf $dst
+    sudo ln -s $src $dst
 }
 
 link terminator/config ~/.config/terminator/config
