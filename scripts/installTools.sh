@@ -17,6 +17,22 @@ function installZsh() {
 	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 }
 
+function installNodeJS() {
+	curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+	sudo apt install -y nodejs
+}
+
+function installDotnetCore() {
+	wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+	sudo dpkg -i packages-microsoft-prod.deb
+
+	sudo add-apt-repository universe
+	sudo apt-get update
+	sudo apt-get install apt-transport-https
+	sudo apt-get update
+	sudo apt-get install dotnet-sdk-3.0
+}
+
 function installDocker() {
 	# see: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 	sudo apt -y install \
