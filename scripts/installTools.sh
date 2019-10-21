@@ -31,7 +31,7 @@ function installDocker() {
 	   stable"
 	sudo apt update
 	sudo apt -y install docker-ce docker-ce-cli containerd.io
-	# TODO add $USER to docker group?
+	sudo usermod -aG docker $USER
 }
 
 installZsh
