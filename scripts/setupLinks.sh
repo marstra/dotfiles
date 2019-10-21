@@ -30,3 +30,4 @@ link emacs/.emacs.d ~/.emacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
 link awesome ~/.config/awesome
+link idea/config ~/.WebStorm*/config
