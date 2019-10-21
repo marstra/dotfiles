@@ -7,7 +7,7 @@ sudo apt -y install git curl wget unzip build-essential net-tools
 sudo apt -y install emacs vim tmux ranger htop
 
 # TODO gui related stuff only when parameter gui is passed
-sudo apt -y chromium-browser xclip terminator
+sudo apt -y install chromium-browser xclip terminator
 sudo apt -y install awesome 
 
 function installZsh() {
@@ -27,10 +27,10 @@ function installDotnetCore() {
 	sudo dpkg -i packages-microsoft-prod.deb
 
 	sudo add-apt-repository universe
-	sudo apt-get update
-	sudo apt-get install apt-transport-https
-	sudo apt-get update
-	sudo apt-get install dotnet-sdk-3.0
+	sudo apt update
+	sudo apt install -y apt-transport-https
+	sudo apt update
+	sudo apt install -y dotnet-sdk-3.0
 }
 
 function installDocker() {
@@ -51,4 +51,6 @@ function installDocker() {
 }
 
 installZsh
-#installDocker
+installDocker
+installNodeJS
+installDotnetCore
