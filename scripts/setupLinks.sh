@@ -23,7 +23,9 @@ function rootlink (){
 }
 
 link terminator/config ~/.config/terminator/config
-link git/.gitconfig ~/.gitconfig
+# this might be no good idea, since the mail address might vary depending on the branch
+#  => branch switches change mail address in commits
+# link git/.gitconfig ~/.gitconfig
 link zsh/.zshrc ~/.zshrc
 link zsh/.zshenv ~/.zshenv
 link emacs/.emacs.d ~/.emacs.d

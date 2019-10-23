@@ -7,7 +7,7 @@ sudo apt -y install git curl wget unzip build-essential net-tools
 sudo apt -y install emacs vim tmux ranger htop
 
 # TODO gui related stuff only when parameter gui is passed
-sudo apt -y install chromium-browser xclip terminator
+sudo apt -y install chromium-browser xclip terminator pcmanfm
 sudo apt -y install awesome 
 
 function installZsh() {
