@@ -33,4 +33,5 @@ link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
 link awesome ~/.config/awesome
 link i3 ~/.config/i3
+link i3/i3blocks.conf ~/.i3blocks.conf
 link idea/config ~/.WebStorm*/config
