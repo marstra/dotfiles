@@ -8,4 +8,5 @@
 (setq mc/cmds-to-run-once
       '(
 	mc/mark-next-lines
+	mc/mark-previous-lines
 	))
