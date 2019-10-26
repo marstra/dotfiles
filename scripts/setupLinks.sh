@@ -12,24 +12,29 @@ function link (){
     ln -s $src $dst
 }
 
-function rootlink (){
+function rootCopy (){
     src="$BASE_DIR/$1"
     dst=$2
     dstDir=$(dirname $dst)
-    echo "make link as root from $src to $dst"
+    echo "make copy as root from $src to $dst"
     sudo mkdir -p $dstDir
     sudo rm -rf $dst
-    sudo ln -s $src $dst
+    sudo cp $src $dst
 }
 
 link terminator/config ~/.config/terminator/config
-link git/.gitconfig ~/.gitconfig
+# link git/.gitconfig ~/.gitconfig
 link zsh/.zshrc ~/.zshrc
 link zsh/.zshenv ~/.zshenv
 link emacs/.emacs.d ~/.emacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
 link awesome ~/.config/awesome
-rootlink gdm3/monitors.xml /var/lib/gdm3/.config/monitors.xml
+link x/.xprofile ~/.xprofile
+
+# has to be copied, symlinks to not work right here ... wait for Ubuntu 20.04 which claims to have fixed multiple monitor support of gdm
+rootCopy gdm3/monitors.xml /var/lib/gdm3/.config/monitors.xml
 sudo chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
-rootlink gdm3/custom.conf /etc/gdm3/custom.conf
+rootCopy gdm3/custom.conf /etc/gdm3/custom.conf
+
+link scripts/monitors/setupMonitorsNormal.sh ~/.local/bin/setupMonitorsNormal.sh

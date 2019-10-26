@@ -128,6 +128,24 @@
   </configuration>
   <configuration>
     <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>1</scale>
+      <monitor>
+        <monitorspec>
+          <connector>DP-0</connector>
+          <vendor>BNQ</vendor>
+          <product>BenQ GL2450H</product>
+          <serial>F1D01862019</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
       <x>1920</x>
       <y>0</y>
       <scale>1</scale>
@@ -165,30 +183,23 @@
       </monitor>
     </logicalmonitor>
     <logicalmonitor>
-      <x>0</x>
+      <x>5760</x>
       <y>0</y>
       <scale>1</scale>
       <monitor>
         <monitorspec>
-          <connector>DP-0</connector>
-          <vendor>BNQ</vendor>
-          <product>BenQ GL2450H</product>
-          <serial>F1D01862019</serial>
+          <connector>HDMI-0</connector>
+          <vendor>GSM</vendor>
+          <product>LG TV</product>
+          <serial>0x01010101</serial>
         </monitorspec>
         <mode>
           <width>1920</width>
           <height>1080</height>
-          <rate>60</rate>
+          <rate>29.998382568359375</rate>
+          <flag>interlace</flag>
         </mode>
       </monitor>
     </logicalmonitor>
-    <disabled>
-      <monitorspec>
-        <connector>HDMI-0</connector>
-        <vendor>GSM</vendor>
-        <product>LG TV</product>
-        <serial>0x01010101</serial>
-      </monitorspec>
-    </disabled>
   </configuration>
 </monitors>
