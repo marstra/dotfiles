@@ -12,14 +12,14 @@ function link (){
     ln -s $src $dst
 }
 
-function rootlink (){
+function rootCopy (){
     src="$BASE_DIR/$1"
     dst=$2
     dstDir=$(dirname $dst)
-    echo "make link as root from $src to $dst"
+    echo "make copy as root from $src to $dst"
     sudo mkdir -p $dstDir
     sudo rm -rf $dst
-    sudo ln -s $src $dst
+    sudo cp $src $dst
 }
 
 link terminator/config ~/.config/terminator/config
@@ -32,6 +32,7 @@ link emacs/.emacs.d ~/.emacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
 link awesome ~/.config/awesome
+link x/.xprofile ~/.xprofile
 link i3 ~/.config/i3
 link i3/i3blocks.conf ~/.i3blocks.conf
 link idea/config ~/.WebStorm*/config
