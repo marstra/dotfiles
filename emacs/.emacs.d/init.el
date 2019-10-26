@@ -7,6 +7,13 @@
 				 ("melpa" . "https://melpa.org/packages/"))))
 (package-initialize)
 
+;; To disable the menu bar
+(menu-bar-mode -1)
+;; To disable the scrollbar
+(toggle-scroll-bar -1)
+;; To disable the toolbar
+(tool-bar-mode -1)
+
 ;; See http://cachestocaches.com/2015/8/getting-started-use-package/ and https://github.com/gjstein/emacs.d/blob/master/init.el
 
 ;; Bootstrap "use-package"

@@ -8,7 +8,8 @@ sudo apt -y install emacs vim tmux ranger htop
 
 # TODO gui related stuff only when parameter gui is passed
 sudo apt -y install chromium-browser xclip terminator pcmanfm
-sudo apt -y install awesome 
+# sudo apt -y install awesome
+sudo apt -y install i3 i3blocks
 
 function installZsh() {
 	sudo apt -y install zsh
