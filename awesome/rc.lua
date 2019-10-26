@@ -643,9 +643,4 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
--- autostarts here
--- TODO use something like https://zmalltalker.com/linux/awesome-autostart.html to ensure every program is just started once
-awful.util.spawn("evolution")
-awful.util.spawn("setupMonitorsNormal.sh")
 -- }}}
