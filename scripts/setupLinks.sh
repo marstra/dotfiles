@@ -31,7 +31,7 @@ link vim/.vim ~/.vim
 link awesome ~/.config/awesome
 link x/.xprofile ~/.xprofile
 link i3 ~/.config/i3
-link i3/i3blocks.conf ~/.i3blocks.conf
+link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf
 link idea/config ~/.WebStorm*/config
 
 # has to be copied, symlinks to not work right here ... wait for Ubuntu 20.04 which claims to have fixed multiple monitor support of gdm
