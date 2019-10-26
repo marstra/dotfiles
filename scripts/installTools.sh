@@ -3,18 +3,35 @@ set -e
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt -y install git curl wget unzip build-essential
+sudo apt -y install git curl wget unzip build-essential net-tools
 sudo apt -y install emacs vim tmux ranger htop
 
 # TODO gui related stuff only when parameter gui is passed
-sudo apt -y chromium-browser xclip terminator
-# sudo apt -y install i3 
+sudo apt -y install chromium-browser xclip terminator pcmanfm
+# sudo apt -y install awesome
+sudo apt -y install i3 i3blocks
 
 function installZsh() {
 	sudo apt -y install zsh
 	# TODO fix oh-my-zsh install, so no user interaction is needed in this step
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+}
+
+function installNodeJS() {
+	curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+	sudo apt install -y nodejs
+}
+
+function installDotnetCore() {
+	wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+	sudo dpkg -i packages-microsoft-prod.deb
+
+	sudo add-apt-repository universe
+	sudo apt-get update
+	sudo apt-get install apt-transport-https
+	sudo apt-get update
+	sudo apt-get install dotnet-sdk-3.0
 }
 
 function installDocker() {
@@ -31,7 +48,7 @@ function installDocker() {
 	   stable"
 	sudo apt update
 	sudo apt -y install docker-ce docker-ce-cli containerd.io
-	# TODO add $USER to docker group?
+	sudo usermod -aG docker $USER
 }
 
 installZsh
