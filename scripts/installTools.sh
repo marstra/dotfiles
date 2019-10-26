@@ -28,10 +28,10 @@ function installDotnetCore() {
 	sudo dpkg -i packages-microsoft-prod.deb
 
 	sudo add-apt-repository universe
-	sudo apt-get update
-	sudo apt-get install apt-transport-https
-	sudo apt-get update
-	sudo apt-get install dotnet-sdk-3.0
+	sudo apt update
+	sudo apt install -y apt-transport-https
+	sudo apt update
+	sudo apt install -y dotnet-sdk-3.0
 }
 
 function installDocker() {
@@ -52,4 +52,6 @@ function installDocker() {
 }
 
 installZsh
-#installDocker
+# installDocker
+# installNodeJS
+# installDotnetCore
