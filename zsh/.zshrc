@@ -106,3 +106,4 @@ alias xcmo="xclip -o"
 
 alias em="emacs -nw"
 alias rg="ranger"
+alias glastb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
