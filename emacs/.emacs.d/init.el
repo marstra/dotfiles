@@ -14,6 +14,11 @@
 ;; To disable the toolbar
 (tool-bar-mode -1)
 
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
 ;; See http://cachestocaches.com/2015/8/getting-started-use-package/ and https://github.com/gjstein/emacs.d/blob/master/init.el
 
 ;; Bootstrap "use-package"
