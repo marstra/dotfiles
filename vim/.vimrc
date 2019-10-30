@@ -39,3 +39,7 @@ call plug#end()
 " use gruvbox theme, see: https://github.com/morhetz/gruvbox/
 colorscheme gruvbox
 set background=dark
+
+" copy to system clipboard see https://unix.stackexchange.com/questions/25965/vim-unnamed-register-or
+noremap <Leader>y "+y
+noremap <Leader>p "+p
