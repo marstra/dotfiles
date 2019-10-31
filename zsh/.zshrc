@@ -107,3 +107,7 @@ alias xcmo="xclip -o"
 alias em="emacs -nw"
 alias rg="ranger"
 alias glastb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
+
+function cdgccp() { echo "cd gccp-dev"; cd $HOME/repos/gccp-dev; zle reset-prompt; zle redisplay }
+zle -N cdgccp
+bindkey '^[cg' cdgccp
