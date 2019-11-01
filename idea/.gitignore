@@ -1,2 +1,8 @@
 config/*
 !config/keymaps
+
+!config/options
+config/options/*
+
+!config/options/filetypes.xml
+!config/options/keymap.xml

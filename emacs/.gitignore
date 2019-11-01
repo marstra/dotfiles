@@ -1,3 +1,5 @@
 .emacs.d/backups/
 .emacs.d/transient
+.emacs.d/project-explorer-cache
+.emacs.d/recentf
 .emacs.d/ac-comphist.dat
