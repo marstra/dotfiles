@@ -10,6 +10,10 @@ sudo apt -y install emacs gnome-vim tmux ranger htop
 sudo apt -y install chromium-browser xclip terminator pcmanfm
 # sudo apt -y install awesome
 sudo apt -y install i3 i3blocks
+# install playerctl to easy control audio players like spotify https://github.com/altdesktop/playerctl/releases
+wget https://github.com/altdesktop/playerctl/releases/download/v2.0.2/playerctl-2.0.2_amd64.deb
+sudo dpkg -i playerctl-2.0.2_amd64.deb
+rm playerctl-2.0.2_amd64.deb
 
 function installZsh() {
 	sudo apt -y install zsh
