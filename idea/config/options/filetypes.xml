@@ -1,0 +1,11 @@
+<application>
+  <component name="FileTypeManager" version="17">
+    <extensionMap>
+      <mapping pattern="Dockerfile*" type="Dockerfile" />
+      <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern=".nycrc" type="JSON" />
+      <mapping ext="weights" type="PLAIN_TEXT" />
+    </extensionMap>
+  </component>
+</application>
