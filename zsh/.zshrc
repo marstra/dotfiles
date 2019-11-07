@@ -107,3 +107,9 @@ alias xcmo="xclip -o"
 alias em="emacs -nw"
 alias rg="ranger"
 alias glastb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
+
+# TODO:
+# - arrow up for backwards search
+# - zsh syntax-highlight-ing
+# - fasd/zaw for fast navigation between recently visited folders
+# - locate for finding files
