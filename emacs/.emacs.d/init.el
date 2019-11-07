@@ -173,6 +173,12 @@ there's a region, all lines that region covers will be duplicated."
 ;; (use-package ledger-mode
   ;; :ensure t)
 
+(use-package company
+  :ensure t
+  :defer t
+  :init (global-company-mode)
+  :config)
+
 ;; keebindings see: https://github.com/sabof/project-explorer
 (use-package project-explorer
   :ensure t
@@ -180,9 +186,14 @@ there's a region, all lines that region covers will be duplicated."
 
 (use-package helm
   :ensure t
-  :bind (("C-x p" . helm-apropos)
-	 ("C-x C-f" . helm-find-files)
-	 ("C-x b" . helm-buffers-list)))
+  :bind (("M-x" . helm-M-x)
+         ("M-y" . helm-show-kill-ring)
+         ("C-x b" . helm-mini)
+         ("C-x C-b" . helm-buffers-list)
+         ("C-x C-f" . helm-find-files)
+         ("C-x C-r" . helm-recentf)
+         ("C-x C-l" . helm-locate)
+         ("C-x c o" . helm-occur)))
 
 (use-package projectile
   :ensure t
@@ -410,7 +421,7 @@ of FILE in the current directory, suitable for creation"
  '(org-agenda-files (quote ("~/repos/notes/")))
  '(package-selected-packages
    (quote
-    (omnisharp ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
+    (omnisharp company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
