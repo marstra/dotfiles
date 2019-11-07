@@ -170,8 +170,8 @@ there's a region, all lines that region covers will be duplicated."
 (use-package gruvbox-theme
   :ensure t)
 
-;; (use-package ledger-mode
-  ;; :ensure t)
+(use-package ledger-mode
+  :ensure t)
 
 (use-package company
   :ensure t
