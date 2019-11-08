@@ -4,7 +4,7 @@ sudo apt update
 sudo apt upgrade -y
 
 sudo apt -y install git curl wget unzip build-essential net-tools
-sudo apt -y install emacs gnome-vim tmux ranger htop
+sudo apt -y install emacs vim-gnome tmux ranger htop
 
 # TODO gui related stuff only when parameter gui is passed
 sudo apt -y install chromium-browser xclip terminator pcmanfm

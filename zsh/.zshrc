@@ -108,6 +108,13 @@ alias em="emacs -nw"
 alias rg="ranger"
 alias glastb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
 
+
 function cdgccp() { echo "cd gccp-dev"; cd $HOME/repos/gccp-dev; zle reset-prompt; zle redisplay }
 zle -N cdgccp
 bindkey '^[cg' cdgccp
+
+# TODO:
+# - arrow up for backwards search
+# - zsh syntax-highlight-ing
+# - fasd/zaw for fast navigation between recently visited folders
+# - locate for finding files
