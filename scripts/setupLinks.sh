@@ -25,6 +25,7 @@ function rootCopy (){
 link terminator/config ~/.config/terminator/config
 link zsh/.zshrc ~/.zshrc
 link zsh/.zshenv ~/.zshenv
+link zsh/.p10k.sh ~/.p10k.sh
 link emacs/.emacs.d ~/.emacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
