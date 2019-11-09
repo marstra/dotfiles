@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	cua-paste
 	electric-pair-delete-pair
 	sh-assignment
 	))
