@@ -37,6 +37,7 @@ zplug "jhawthorn/fzy", \
 zplug "modules/fasd", from:prezto # productifity booster to perofr
 zplug "modules/utility", from:prezto # sane defaults (ls aliases and ctrl+arrow cursor movements)
 zplug "plugins/git",   from:oh-my-zsh # nice git aliases
+zplug "plugins/tmux", from:oh-my-zsh # tmux aliases
 zplug "zsh-users/zsh-completions" # more completions
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2 # (like fish)
