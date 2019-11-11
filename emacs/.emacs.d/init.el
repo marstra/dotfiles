@@ -268,8 +268,8 @@ there's a region, all lines that region covers will be duplicated."
 (use-package auto-complete
   :ensure t)
 
-(use-package omnisharp
-  :ensure t)
+;; (use-package omnisharp
+;;   :ensure t)
 
 ;; (use-package auto-complete-auctex
 ;;  :ensure t)
@@ -421,7 +421,7 @@ of FILE in the current directory, suitable for creation"
  '(org-agenda-files (quote ("~/repos/notes/")))
  '(package-selected-packages
    (quote
-    (omnisharp company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
+    (company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
