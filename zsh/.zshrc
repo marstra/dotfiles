@@ -29,6 +29,7 @@ fi
 # - `zplug clean` to clear out now unmanaged packages
 # - `zplug 'owner/repo'` to use a plugin from https://github.com/$owner/$repo
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "chriskempson/base16-shell", use:"scripts/base16-ocean.sh", defer:0 # fancy colors
 zplug "romkatv/powerlevel10k", as:theme, depth:1 # fancy theme with nice prompt
 zplug "jhawthorn/fzy", \
     as:command, \
