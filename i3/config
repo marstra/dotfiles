@@ -189,7 +189,7 @@ bindsym $mod+r mode "resize"
 set $keyboard_layout Keyboard Layout: (d) German, (u) US English
 mode "$keyboard_layout" {
         bindsym d exec --no-startup-id setxkbmap de ,mode "default"
-        bindsym u exec --no-startup-id setxkbmap us ,mode "default"
+        bindsym u exec --no-startup-id setxkbmap us ,mode "default" -option ctrl:nocaps
 	# back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
