@@ -143,9 +143,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks"
 bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master 1+ toggle && pkill -RTMIN+10 i3blocks"
-# bindsym XF86AudioPlay exec --no-startup-id "player play"
-# bindsym XF86AudioNext exec --no-startup-id "player next"
-# bindsym XF86AudioPrev exec --no-startup-id "player prev"
+bindsym XF86AudioPlay exec --no-startup-id "playerctl play-pause"
+bindsym XF86AudioStop exec --no-startup-id "playerctl stop"
+bindsym XF86AudioNext exec --no-startup-id "playerctl next"
+bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 15"
 bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 15"
 

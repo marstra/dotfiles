@@ -25,6 +25,7 @@ function rootCopy (){
 link terminator/config ~/.config/terminator/config
 link zsh/.zshrc ~/.zshrc
 link zsh/.zshenv ~/.zshenv
+link zsh/.p10k.sh ~/.p10k.sh
 link emacs/.emacs.d ~/.emacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
@@ -34,3 +35,4 @@ link i3 ~/.config/i3
 link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf
 link idea/config ~/.WebStorm*/config
 link idea/.ideavimrc ~/.ideavimrc
+link tmux/.tmux.conf ~/.tmux.conf

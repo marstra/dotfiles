@@ -1,120 +1,135 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# LINKs:
+#  - https://gist.github.com/bb010g/379e0788e21fb119b5271fc22a896272
+# TODOs:
+#  - fasd/zaw for fast navigation between recently visited folders
+#  - locate for finding files
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# ++++++++++++++++++++++++++++++++++++++
+# PLUGINS
+# --------------------------------------
+ZPLUG_HOME=$HOME/.zplug
+if [[ ! -d ~/.zplug ]];then
+    git clone https://github.com/b4b4r07/zplug $ZPLUG_HOME
+    source $ZPLUG_HOME/init.zsh && zplug --self-manage update
+else
+    source $ZPLUG_HOME/init.zsh
+fi
 
+# zplug basics:
+# - `zplug status` to see if packages are up to date
+# - `zplug update` to update packages
+# - `zplug list` to see currently managed packages
+# - `zplug clean` to clear out now unmanaged packages
+# - `zplug 'owner/repo'` to use a plugin from https://github.com/$owner/$repo
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "romkatv/powerlevel10k", as:theme, depth:1 # fancy theme with nice prompt
+zplug "jhawthorn/fzy", \
+    as:command, \
+    rename-to:fzy, \
+    hook-build:"make && sudo make install"
+zplug "modules/fasd", from:prezto # productifity booster to perofr
+zplug "modules/utility", from:prezto # sane defaults (ls aliases and ctrl+arrow cursor movements)
+zplug "plugins/git",   from:oh-my-zsh # nice git aliases
+zplug "plugins/tmux", from:oh-my-zsh # tmux aliases
+zplug "zsh-users/zsh-completions" # more completions
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2 # (like fish)
+zplug 'zsh-users/zsh-history-substring-search', defer:3 # loaded after syntax-highlighting
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+
+# ++++++++++++++++++++++++++++++++++++++
+# OPTIONS
+# --------------------------------------
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE=$HOME/.zsh_history
+setopt append_history # better concurrent shell history sharing
+setopt extended_history # better history
+setopt share_history # better concurrent shell history sharing
+setopt hist_expire_dups_first # don't fill your history as quickly with junk
+setopt hist_ignore_space # ` command` doesn't save to history
+setopt hist_reduce_blanks # `a  b` normalizes to `a b` in history
+setopt auto_cd # can navigate without cd when using directories
+setopt complete_in_word # more intuitive completions
+setopt no_beep
+
+# ++++++++++++++++++++++++++++++++++++++
+# KEYBINDINGS
+# --------------------------------------
+# Use the Emacs-like keybindings
+bindkey -e
+bindkey -M main '^[OA' history-substring-search-up
+bindkey -M main '^[OB' history-substring-search-down
+bindkey -M main '^[[A' history-substring-search-up
+bindkey -M main '^[[B' history-substring-search-up
+
+bindkey '^r' history-incremental-search-backward
+bindkey '^R' history-incremental-pattern-search-backward
+
+# ++++++++++++++++++++++++++++++++++++++
+# ALIASES
+# --------------------------------------
+# cd
+alias ...=../..
+alias ....=../../..
+alias .....=../../../..
+alias ......=../../../../..
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+# # basic file operations
+alias md='mkdir -p'
+alias rd=rmdir
+# xclip
 alias xc="xclip -selection clipboard"
 alias xco="xclip -selection clipboard -o"
 alias xcm="xclip"
 alias xcmo="xclip -o"
-
+# misc
+alias grep='grep --color=auto'
 alias em="emacs -nw"
 alias rg="ranger"
 alias glastb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
 
+alias gs=gss
+# fasd
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
 
-function cdgccp() { echo "cd gccp-dev"; cd $HOME/repos/gccp-dev; zle reset-prompt; zle redisplay }
-zle -N cdgccp
-bindkey '^[cg' cdgccp
+function _gotoDir {
+    echo "visit recently viewed directory"
+    cd $(d -l | fzy)
+    zle accept-line
+}
+zle -N goto _gotoDir
+bindkey '^g' goto
 
-# TODO:
-# - arrow up for backwards search
-# - zsh syntax-highlight-ing
-# - fasd/zaw for fast navigation between recently visited folders
-# - locate for finding files
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
