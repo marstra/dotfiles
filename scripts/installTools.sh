@@ -7,7 +7,7 @@ sudo apt -y install git curl wget unzip build-essential net-tools
 sudo apt -y install emacs vim-gnome tmux ranger htop
 
 # TODO gui related stuff only when parameter gui is passed
-sudo apt -y install chromium-browser xclip terminator pcmanfm
+sudo apt -y install chromium-browser xsel terminator pcmanfm
 # sudo apt -y install awesome
 sudo apt -y install i3 i3blocks
 # install playerctl to easy control audio players like spotify https://github.com/altdesktop/playerctl/releases

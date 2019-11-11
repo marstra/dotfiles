@@ -102,10 +102,10 @@ alias 9='cd -9'
 alias md='mkdir -p'
 alias rd=rmdir
 # xclip
-alias xc="xclip -selection clipboard"
-alias xco="xclip -selection clipboard -o"
-alias xcm="xclip"
-alias xcmo="xclip -o"
+alias xc="xsel -b"
+alias xco="xsel -b -o"
+alias xcm="xsel"
+alias xcmo="xsel -o"
 # misc
 alias grep='grep --color=auto'
 alias em="emacs -nw"
