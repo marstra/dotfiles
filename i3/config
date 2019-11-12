@@ -208,3 +208,5 @@ bar {
 # - i3-save-tree
 # - i3 scratchpad
 # - exec standard programs
+# - use xcwd to spawn terminals in the folder of the last opened https://github.com/schischi/xcwd
+#   - bindsym $mod+Return exec urxvt -cd $(xcwd)
