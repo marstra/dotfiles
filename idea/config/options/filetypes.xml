@@ -6,6 +6,7 @@
       <mapping pattern="*.js.flow" type="Flow" />
       <mapping pattern=".nycrc" type="JSON" />
       <mapping ext="weights" type="PLAIN_TEXT" />
+      <mapping pattern=".prettierrc" type="YAML" />
     </extensionMap>
   </component>
 </application>
