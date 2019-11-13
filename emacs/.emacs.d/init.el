@@ -271,6 +271,20 @@ there's a region, all lines that region covers will be duplicated."
 (use-package dockerfile-mode
   :ensure t)
 
+(use-package haml-mode
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t)
+
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
 ;; see https://github.com/glynnforrest/emacs.d/blob/master/site-lisp/setup-web-mode.el
 (use-package web-mode :ensure t
   :mode
@@ -278,8 +292,10 @@ there's a region, all lines that region covers will be duplicated."
    ".twig$"
    ".html?$"
    ".hbs$"
+   ".json$"
    ".vue$"
    ".ts$"
+   ".scss$"
    ".blade.php$"
    )
   :config
@@ -309,6 +325,20 @@ there's a region, all lines that region covers will be duplicated."
    tab-width 2
    evil-shift-width 2
    ))
+
+
+;; ruby/rails support
+(use-package ruby-mode
+  :ensure t)
+
+(use-package ruby-end
+  :ensure t)
+
+(use-package rinari
+  :ensure t)
+
+(use-package projectile-rails
+  :ensure t)
 
 ;; (use-package auto-complete-auctex
 ;;  :ensure t)
@@ -463,7 +493,7 @@ of FILE in the current directory, suitable for creation"
  '(org-agenda-files (quote ("~/repos/notes/")))
  '(package-selected-packages
    (quote
-    (dockerfile-mode omnisharp vue-mode tide web-mode company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
+    (haml-mode markdown-mode projectile-rails rinari ruby-end dockerfile-mode omnisharp vue-mode tide web-mode company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
