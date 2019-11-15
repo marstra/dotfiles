@@ -25,6 +25,7 @@ function rootCopy (){
 link terminator/config ~/.config/terminator/config
 link zsh/.zshrc ~/.zshrc
 link zsh/.zshenv ~/.zshenv
+link zsh/.p10k.zsh ~/.p10k.zsh
 link emacs/.emacs.d ~/.emacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
@@ -34,7 +35,7 @@ link i3 ~/.config/i3
 link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf
 link idea/config ~/.WebStorm*/config
 link idea/.ideavimrc ~/.ideavimrc
-
+link tmux/.tmux.conf ~/.tmux.conf
 
 # has to be copied, symlinks to not work right here ... wait for Ubuntu 20.04 which claims to have fixed multiple monitor support of gdm
 rootCopy gdm3/monitors.xml /var/lib/gdm3/.config/monitors.xml

@@ -268,7 +268,76 @@ there's a region, all lines that region covers will be duplicated."
 (use-package auto-complete
   :ensure t)
 
+(use-package dockerfile-mode
+  :ensure t)
+
+(use-package haml-mode
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t)
+
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+;; see https://github.com/glynnforrest/emacs.d/blob/master/site-lisp/setup-web-mode.el
+(use-package web-mode :ensure t
+  :mode
+  (
+   ".twig$"
+   ".html?$"
+   ".hbs$"
+   ".json$"
+   ".vue$"
+   ".ts$"
+   ".scss$"
+   ".blade.php$"
+   )
+  :config
+  (setq
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-enable-auto-closing t
+   web-mode-enable-auto-opening t
+   web-mode-enable-auto-pairing t
+   web-mode-enable-auto-indentation t
+   ))
+
+(use-package tide
+  :ensure t)
+
+(setq-default indent-tabs-mode nil)
+
 (use-package omnisharp
+  :ensure t
+  :config
+  (setq
+   indent-tabs-mode nil
+   c-syntactic-indentation t
+   c-basic-offset 2
+   truncate-lines t
+   tab-width 2
+   evil-shift-width 2
+   ))
+
+
+;; ruby/rails support
+(use-package ruby-mode
+  :ensure t)
+
+(use-package ruby-end
+  :ensure t)
+
+(use-package rinari
+  :ensure t)
+
+(use-package projectile-rails
   :ensure t)
 
 ;; (use-package auto-complete-auctex
@@ -341,8 +410,10 @@ there's a region, all lines that region covers will be duplicated."
 ;; disable indention
 ;; (defun indent-according-to-mode nil)
 
-;; emacs indentiert nie mit tabs anstatt spaces
+;; use 2 spaces for indentation
 (setq tab-always-indent nil)
+(setq-default indent-tabs-mode nil)
+(setq tab-width 2)
 
 ;; setup compile command to call make in the directory of the closest makefile
 ;; see https://www.emacswiki.org/emacs/CompileCommand
@@ -387,7 +458,8 @@ of FILE in the current directory, suitable for creation"
 
 ;; Refresht automatisch Dateien, die sich auf Disk geändert haben, aber
 ;;   in Emacs nicht verändert wurden. Kann immer mit Undo rückgängig
-(setq global-auto-revert-mode t)
+;; (setq global-auto-revert-mode t)
+(global-auto-revert-mode t)
 
 ; startet den server, dass emacsclient funktioniert
 (load "server")
@@ -421,7 +493,7 @@ of FILE in the current directory, suitable for creation"
  '(org-agenda-files (quote ("~/repos/notes/")))
  '(package-selected-packages
    (quote
-    (omnisharp company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
+    (haml-mode markdown-mode projectile-rails rinari ruby-end dockerfile-mode omnisharp vue-mode tide web-mode company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
