@@ -33,6 +33,5 @@ link awesome ~/.config/awesome
 link x/.xprofile ~/.xprofile
 link i3 ~/.config/i3
 link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf
-link idea/config ~/.WebStorm*/config
 link idea/.ideavimrc ~/.ideavimrc
 link tmux/.tmux.conf ~/.tmux.conf
