@@ -3,7 +3,7 @@ set -e
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt -y install tmux emacs-25 vim
+sudo apt -y install tmux emacs25 vim
 
 function installZsh() {
     sudo apt -y install zsh
