@@ -3,13 +3,15 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	cua-paste
-	electric-pair-delete-pair
-	sh-assignment
-	))
+        cua-paste
+        electric-pair-delete-pair
+        indent-for-tab-command
+        sh-assignment
+        yaml-electric-backspace
+        ))
 
 (setq mc/cmds-to-run-once
       '(
-	mc/mark-next-lines
-	mc/mark-previous-lines
-	))
+        mc/mark-next-lines
+        mc/mark-previous-lines
+        ))

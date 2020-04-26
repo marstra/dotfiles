@@ -2,11 +2,9 @@
   <component name="FileTypeManager" version="17">
     <extensionMap>
       <mapping pattern="Dockerfile*" type="Dockerfile" />
-      <mapping pattern="*.js.flow" type="Flow" />
-      <mapping pattern="*.js.flow" type="Flow" />
       <mapping pattern=".nycrc" type="JSON" />
+      <mapping pattern=".dockerignore" type="PLAIN_TEXT" />
       <mapping ext="weights" type="PLAIN_TEXT" />
-      <mapping pattern=".prettierrc" type="YAML" />
     </extensionMap>
   </component>
 </application>
