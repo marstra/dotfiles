@@ -3,7 +3,7 @@ set -e
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt -y install tmux emacs25 vim
+sudo apt -y install tmux emacs25 vim build-essential
 
 function installZsh() {
     sudo apt -y install zsh
@@ -17,6 +17,11 @@ function installDocker() {
     sh get-docker.sh
     rm get-docker.sh
     sudo usermod -aG docker $USER
+}
+
+function setup_locales() {
+    # install de_DE UTF8
+    sudo dpkg-reconfigure locales
 }
 
 function installDockerCompose() {
