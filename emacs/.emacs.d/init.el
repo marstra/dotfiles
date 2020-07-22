@@ -36,7 +36,7 @@
 (global-set-key (kbd "S-<f1>") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 
 ;; open inbox using f2
-(global-set-key (kbd "<f2>") (lambda () (interactive) (find-file "~/repos/notes/Inbox.org")))
+(global-set-key (kbd "<f2>") (lambda () (interactive) (find-file "~/notes/notes.org")))
 (global-set-key (kbd "<f3>") (lambda () (interactive) (find-file "~/repos/masterarbeit/notes/Masterarbeit.org")))
 
 ;; smali mode https://github.com/strazzere/Emacs-Smali
@@ -493,7 +493,7 @@ of FILE in the current directory, suitable for creation"
  '(org-agenda-files (quote ("~/repos/notes/")))
  '(package-selected-packages
    (quote
-    (haml-mode markdown-mode projectile-rails rinari ruby-end dockerfile-mode omnisharp vue-mode tide web-mode company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
+    (go-mode haml-mode markdown-mode projectile-rails rinari ruby-end dockerfile-mode omnisharp vue-mode tide web-mode company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

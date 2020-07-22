@@ -54,6 +54,16 @@ function installDocker() {
     sudo usermod -aG docker $USER
 }
 
+function installReversing() {
+    # install radare
+    sudo mkdir /opt/radare2
+    cd /opt/radare2
+    ./sys/install.sh
+    # install gdb+gef and readelf
+    sudo apt instsall gdb readelf
+    wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
+}
+
 installZsh
 installDocker
 installNodeJS
