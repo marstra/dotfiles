@@ -35,3 +35,5 @@ link i3 ~/.config/i3
 link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf
 link idea/.ideavimrc ~/.ideavimrc
 link tmux/.tmux.conf ~/.tmux.conf
+link vscode/keybindings.json ~/.config/Code/User/keybindings.json
+link vscode/settings.json ~/.config/Code/User/settings.json
