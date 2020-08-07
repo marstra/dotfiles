@@ -36,8 +36,7 @@
 (global-set-key (kbd "S-<f1>") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 
 ;; open inbox using f2
-(global-set-key (kbd "<f2>") (lambda () (interactive) (find-file "~/notes/notes.org")))
-(global-set-key (kbd "<f3>") (lambda () (interactive) (find-file "~/repos/masterarbeit/notes/Masterarbeit.org")))
+(global-set-key (kbd "<f2>") (lambda () (interactive) (find-file "~/OneDrive/notes/notes.org")))
 
 ;; smali mode https://github.com/strazzere/Emacs-Smali
 (add-to-list 'load-path "~/.emacs.d/includes")
@@ -490,7 +489,7 @@ of FILE in the current directory, suitable for creation"
      ("reg" "%(binary) -f %(ledger-file) reg")
      ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
      ("account" "%(binary) -f %(ledger-file) reg %(account)"))))
- '(org-agenda-files (quote ("~/repos/notes/")))
+ '(org-agenda-files (quote ("~/OneDrive/notes/")))
  '(package-selected-packages
    (quote
     (go-mode haml-mode markdown-mode projectile-rails rinari ruby-end dockerfile-mode omnisharp vue-mode tide web-mode company-mode ledger-mode openwith lua-mode helm-gtags ggtags swiper elpy pdf-tools highlight-indent-guides git-gutter auto-complete-auctex auctex helm-projectile helm magit undo-tree use-package multiple-cursors))))
