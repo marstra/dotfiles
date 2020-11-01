@@ -3,3 +3,5 @@
 .emacs.d/project-explorer-cache
 .emacs.d/recentf
 .emacs.d/ac-comphist.dat
+.emacs.d/session.*
+.emacs.d/#recentf#

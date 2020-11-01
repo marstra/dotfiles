@@ -5,4 +5,4 @@ export SSH_AUTH_SOCK
 
 export PATH=$PATH:$HOME/.local/bin
 setxkbmap us ,mode "default" -option ctrl:nocaps
-setupMonitorsNormal.sh
+setup_monitors.sh

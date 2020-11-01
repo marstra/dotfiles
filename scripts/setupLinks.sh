@@ -41,4 +41,4 @@ rootCopy gdm3/monitors.xml /var/lib/gdm3/.config/monitors.xml
 sudo chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
 rootCopy gdm3/custom.conf /etc/gdm3/custom.conf
 
-link scripts/monitors/setupMonitorsNormal.sh ~/.local/bin/setupMonitorsNormal.sh
+link scripts/monitors/setup_monitors.sh ~/.local/bin/setup_monitors.sh
