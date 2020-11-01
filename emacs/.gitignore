@@ -2,4 +2,6 @@
 .emacs.d/transient
 .emacs.d/project-explorer-cache
 .emacs.d/recentf
+.emacs.d/#*
+.emacs.d/session.*
 .emacs.d/ac-comphist.dat
