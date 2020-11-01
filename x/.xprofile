@@ -12,4 +12,8 @@ if command -v $VM_WARE_TOOL &> /dev/null; then
     $VM_WARE_TOOL
 fi
 
-setup_monitors.sh
+MONITOR_SETUP=setup_monitors.sh
+
+if command -v $MONITOR_SETUP &> /dev/null; then
+    $MONITOR_SETUP
+fi
