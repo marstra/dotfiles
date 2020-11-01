@@ -217,4 +217,3 @@ bar {
 # - exec standard programs
 # - use xcwd to spawn terminals in the folder of the last opened https://github.com/schischi/xcwd
 #   - bindsym $mod+Return exec urxvt -cd $(xcwd)
-exec vmware-user-suid-wrapper
