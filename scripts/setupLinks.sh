@@ -35,10 +35,13 @@ link i3 ~/.config/i3
 link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf
 link idea/.ideavimrc ~/.ideavimrc
 link tmux/.tmux.conf ~/.tmux.conf
+link vscode/keybindings.json ~/.config/Code/User/keybindings.json
+link vscode/settings.json ~/.config/Code/User/settings.json
 
 # has to be copied, symlinks to not work right here ... wait for Ubuntu 20.04 which claims to have fixed multiple monitor support of gdm
-rootCopy gdm3/monitors.xml /var/lib/gdm3/.config/monitors.xml
-sudo chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
-rootCopy gdm3/custom.conf /etc/gdm3/custom.conf
+# TODO are these lines still necessary or is multimonitor now working as expected in gdm?
+# rootCopy gdm3/monitors.xml /var/lib/gdm3/.config/monitors.xml
+# sudo chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
+# rootCopy gdm3/custom.conf /etc/gdm3/custom.conf
 
 link scripts/monitors/setup_monitors.sh ~/.local/bin/setup_monitors.sh

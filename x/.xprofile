@@ -1,8 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 export PATH=$PATH:$HOME/.local/bin
 setxkbmap us ,mode "default" -option ctrl:nocaps
+
+VM_WARE_TOOL=vmware-user-suid-wrapper
+
+if command -v $VM_WARE_TOOL &> /dev/null; then
+    $VM_WARE_TOOL
+fi
+
 setup_monitors.sh

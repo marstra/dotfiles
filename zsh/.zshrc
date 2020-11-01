@@ -112,6 +112,7 @@ alias grep='grep --color=auto'
 alias em="emacs -nw"
 alias rg="ranger"
 alias glastb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
+
 alias gs=gss
 # fasd
 alias a='fasd -a'        # any
