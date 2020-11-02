@@ -1,5 +1,12 @@
 {
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false,
+    "vetur.format.defaultFormatter.html": "none",
+    "vetur.format.defaultFormatter.js": "none",
+    "vetur.format.defaultFormatter.ts": "none",
+    "vetur.format.scriptInitialIndent": true,
+    "window.zoomLevel": 0
 }
