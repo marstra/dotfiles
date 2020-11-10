@@ -11,9 +11,9 @@ sudo apt -y install chromium-browser xclip terminator pcmanfm
 # sudo apt -y install awesome
 sudo apt -y install i3 i3blocks rofi imagemagick
 # install playerctl to easy control audio players like spotify https://github.com/altdesktop/playerctl/releases
-wget https://github.com/altdesktop/playerctl/releases/download/v2.0.2/playerctl-2.0.2_amd64.deb
-sudo dpkg -i playerctl-2.0.2_amd64.deb
-rm playerctl-2.0.2_amd64.deb
+wget https://github.com/altdesktop/playerctl/releases/download/v2.2.1/playerctl-2.2.1_amd64.deb
+sudo dpkg -i playerctl-2.2.1_amd64.deb
+rm playerctl-2.2.1_amd64.deb
 
 function installZsh() {
     sudo apt -y install zsh
@@ -22,7 +22,7 @@ function installZsh() {
 }
 
 function installNodeJS() {
-    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt install -y nodejs
 }
 
@@ -48,7 +48,7 @@ function installDocker() {
 
 function installDockerCompose() {
     # see: https://docs.docker.com/install/linux/docker-ce/ubuntu/
-    sudo curl -L https://github.com/docker/compose/releases/download/1.26.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+    sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 }
 
@@ -66,7 +66,7 @@ installZsh
 installDocker
 installDockerCompose
 installNodeJS
-installDotnetCore
+# installDotnetCore
 
 # increase number of inotify watchers, so webpack watch works, see https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
