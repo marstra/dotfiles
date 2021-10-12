@@ -6,3 +6,4 @@ config/options/*
 
 !config/options/filetypes.xml
 !config/options/keymap.xml
+!config/options/editor.xml
