@@ -209,6 +209,11 @@ bar {
         status_command SCRIPT_DIR=~/.config/i3/i3blocks/blocklets i3blocks
 }
 
+# set background to normal color
+exec --no-startup-id xsetroot -solid "#333333"
+# todo setup background image
+# exec_always feh -x --bg-scale '/home/markus/Pictures/wallpapers/desert.jpg'
+
 # TODO:
 # - i3-save-tree
 # - i3 scratchpad
