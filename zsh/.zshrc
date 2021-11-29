@@ -132,5 +132,7 @@ function _gotoDir {
 zle -N goto _gotoDir
 bindkey '^g' goto
 
+precmd() { pwd > /tmp/whereami}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
