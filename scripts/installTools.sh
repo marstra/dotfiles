@@ -7,7 +7,7 @@ sudo apt -y install git curl wget unzip build-essential net-tools
 sudo apt -y install emacs vim tmux ranger htop
 
 # TODO gui related stuff only when parameter gui is passed
-sudo apt -y install chromium-browser xclip terminator pcmanfm
+sudo apt -y install xclip terminator pcmanfm
 # sudo apt -y install awesome
 sudo apt -y install i3 i3blocks rofi imagemagick
 # install playerctl to easy control audio players like spotify https://github.com/altdesktop/playerctl/releases
@@ -21,9 +21,16 @@ function installZsh() {
     chsh $USER -s /usr/bin/zsh
 }
 
+function installChrome() {
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+    rm -f google-chrome-stable_current_amd64.deb
+    xdg-settings set default-web-browser google-chrome.desktop
+}
+
 function installNodeJS() {
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-    sudo apt install -y nodejs
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+    nvm install --lts
 }
 
 function installDotnetCore() {
@@ -48,7 +55,7 @@ function installDocker() {
 
 function installDockerCompose() {
     # see: https://docs.docker.com/install/linux/docker-ce/ubuntu/
-    sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+    sudo curl -L https://github.com/docker/compose/releases/download/v2.11.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 }
 
@@ -63,6 +70,7 @@ function installReversing() {
 }
 
 installZsh
+installChrome
 installDocker
 installDockerCompose
 installNodeJS
