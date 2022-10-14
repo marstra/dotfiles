@@ -33,15 +33,11 @@ function installNodeJS() {
     nvm install --lts
 }
 
-function installDotnetCore() {
-    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-    sudo dpkg -i packages-microsoft-prod.deb
-    rm packages-microsoft-prod.deb
-
-    sudo apt update
-    sudo apt install -y apt-transport-https
-    sudo apt update
-    sudo apt install -y dotnet-sdk-3.1
+function installDotnet() {
+    wget https://dot.net/v1/dotnet-install.sh
+    chmod +x ./dotnet-install.sh
+    ./dotnet-install.sh
+    rm -f dotnet-install.sh
 }
 
 function installDocker() {
