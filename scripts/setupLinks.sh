@@ -29,7 +29,6 @@ link zsh/.p10k.zsh ~/.p10k.zsh
 link emacs/.emacs.d ~/.emacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
-link awesome ~/.config/awesome
 link x/.xprofile ~/.xprofile
 link i3 ~/.config/i3
 link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf
