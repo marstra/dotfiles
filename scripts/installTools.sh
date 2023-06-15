@@ -17,7 +17,7 @@ sudo dpkg -i playerctl-2.2.1_amd64.deb
 rm playerctl-2.2.1_amd64.deb
 
 function installZsh() {
-    sudo apt -y install zsh
+    sudo apt -y install zsh fzf bat
     echo "change default shell for $USER to zsh"
     chsh $USER -s /usr/bin/zsh
 }

@@ -31,14 +31,11 @@ fi
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "chriskempson/base16-shell", use:"scripts/base16-ocean.sh", defer:0 # fancy colors
 zplug "romkatv/powerlevel10k", as:theme, depth:1 # fancy theme with nice prompt
-zplug "jhawthorn/fzy", \
-    as:command, \
-    rename-to:fzy, \
-    hook-build:"make && sudo make install"
 zplug "modules/fasd", from:prezto # productifity booster to perofr
 zplug "modules/utility", from:prezto # sane defaults (ls aliases and ctrl+arrow cursor movements)
 zplug "plugins/git",   from:oh-my-zsh # nice git aliases
 zplug "plugins/tmux", from:oh-my-zsh # tmux aliases
+zplug "plugins/fzf", from:oh-my-zsh # fzf aliases
 zplug "zsh-users/zsh-completions" # more completions
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2 # (like fish)
@@ -126,7 +123,7 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 
 function _gotoDir {
     echo "visit recently viewed directory"
-    cd $(d -l | fzy)
+    cd $(d -l | fzf)
     zle accept-line
 }
 zle -N goto _gotoDir
@@ -140,3 +137,8 @@ precmd() { pwd > /tmp/whereami}
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
