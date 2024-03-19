@@ -5,7 +5,9 @@ sudo apt upgrade -y
 
 sudo apt -y install git curl wget unzip build-essential net-tools
 sudo snap install btop
-sudo apt -y install emacs vim tmux ranger htop fzy
+sudo snap install --classic code
+sudo snap install --classic emacs
+sudo apt -y install vim tmux ranger htop
 
 # TODO gui related stuff only when parameter gui is passed
 sudo apt -y install xclip terminator pcmanfm
