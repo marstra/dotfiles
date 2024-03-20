@@ -107,7 +107,7 @@ alias xcmo="xclip -o"
 # misc
 alias grep='grep --color=auto'
 alias em="emacs -nw"
-alias rg="ranger"
+alias rg="rg --hidden --glob '!.git'"
 alias glastb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
 
 alias gs=gss
@@ -123,7 +123,7 @@ alias zz='fasd_cd -d -i' # cd with interactive selection
 
 function _gotoDir {
     echo "visit recently viewed directory"
-    cd $(d -l | fzf)
+    cd "$(d -l | fzf)"
     zle accept-line
 }
 zle -N goto _gotoDir

@@ -7,7 +7,17 @@ sudo apt -y install git curl wget unzip build-essential net-tools
 sudo snap install btop
 sudo snap install --classic code
 sudo snap install --classic emacs
-sudo apt -y install vim tmux ranger htop
+git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
+
+sudo apt -y install vim ranger ripgrep
+
+function install_tmux() {
+    sudo apt -y tmux
+    cd $HOME
+    git clone https://github.com/gpakosz/.tmux.git
+    ln -s -f .tmux/.tmux.conf
+    cp .tmux/.tmux.conf.local .
+}
 
 # TODO gui related stuff only when parameter gui is passed
 sudo apt -y install xclip terminator pcmanfm
