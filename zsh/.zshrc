@@ -106,7 +106,6 @@ alias xcm="xclip"
 alias xcmo="xclip -o"
 # misc
 alias grep='grep --color=auto'
-alias em="emacsclient -n -a '' -r"
 alias rg="rg --hidden --glob '!.git'"
 alias glastb="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
 
