@@ -33,6 +33,9 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindsym $mod+Mod1+c exec remote_clipboard set
+bindsym $mod+Mod1+v exec remote_clipboard get
+
 # start a terminal
 bindsym $mod+Return exec bash -c 'i3-sensible-terminal --working-directory=$(cat /tmp/whereami)'
 
