@@ -587,6 +587,9 @@ before packages are loaded."
     "ep" 'org-beamer-export-to-pdf)
   ;; no mouse in terminal to allow selecting/copying text from terminal emulator and not inside emacs
   (xterm-mouse-mode -1)
+
+  (setq org-todo-keywords
+        '((sequence "TODO" "PROGRESS" "|" "DONE" "DELEGATED")))
 )
 
 
