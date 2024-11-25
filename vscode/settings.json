@@ -9,5 +9,6 @@
     "vetur.format.defaultFormatter.ts": "none",
     "vetur.format.scriptInitialIndent": true,
     "window.zoomLevel": 0,
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono"
 }
