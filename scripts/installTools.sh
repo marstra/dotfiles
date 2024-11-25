@@ -20,9 +20,9 @@ function install_tmux() {
 }
 
 # TODO gui related stuff only when parameter gui is passed
-sudo apt -y install xclip terminator pcmanfm
+sudo apt -y install xclip alacritty pcmanfm
 # sudo apt -y install awesome
-sudo apt -y install i3 i3blocks rofi imagemagick
+sudo apt -y install i3 polybar rofi imagemagick
 # install playerctl to easy control audio players like spotify https://github.com/altdesktop/playerctl/releases
 wget https://github.com/altdesktop/playerctl/releases/download/v2.2.1/playerctl-2.2.1_amd64.deb
 sudo dpkg -i playerctl-2.2.1_amd64.deb
