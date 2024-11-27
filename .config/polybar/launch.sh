@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# CONFIG="--config=$HOME/.config/polybar/config.ini"
+CONFIG="--config=$HOME/.config/polybar/config.ini"
 
 polybar-msg cmd quit
 
