@@ -175,9 +175,9 @@ bindsym --release $mod+i exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ &
 set $ws9 "9:AI"
 bindsym $mod+Shift+g exec --no-startup-id "google-chrome-stable --app='https://chatgpt.com/'"
 bindsym $mod+Shift+u exec --no-startup-id "google-chrome-stable --app='https://gemini.google.com/app'"
-for_window [title="ChatGPT"] move container to workspace 9
+for_window [title="ChatGPT"] move to workspace 9
 assign [title="ChatGPT"] workspace number 9
-for_window [title="Gemini"] move container to workspace 9
+for_window [title="Gemini"] move to workspace 9
 assign [title="Gemini"] workspace number 9
 
 
@@ -232,6 +232,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xsetroot -solid "#333333"
 # todo setup background image
 # exec_always feh -x --bg-scale '/home/markus/Pictures/wallpapers/desert.jpg'
+exec_always --no-startup-id picom &
 
 # TODO:
 # - i3-save-tree
