@@ -5,3 +5,4 @@
 .emacs.d/#*
 .emacs.d/session.*
 .emacs.d/ac-comphist.dat
+.spacemacs.env
