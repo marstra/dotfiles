@@ -12,7 +12,7 @@ git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
 sudo apt -y install vim ranger ripgrep
 
 function install_tmux() {
-    sudo apt -y tmux
+    sudo apt install -y tmux
     cd $HOME
     git clone https://github.com/gpakosz/.tmux.git
     ln -s -f .tmux/.tmux.conf
