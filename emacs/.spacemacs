@@ -588,6 +588,9 @@ before packages are loaded."
   ;; no mouse in terminal to allow selecting/copying text from terminal emulator and not inside emacs
   (xterm-mouse-mode -1)
 
+  (when (file-exists-p "~/.spacemacs.d/org-setup.el")
+    (load-file "~/.spacemacs.d/org-setup.el"))
+
   (setq org-todo-keywords
         '((sequence "TODO" "PROGRESS" "|" "DONE" "DELEGATED")))
   )
@@ -606,7 +609,6 @@ This function is called at the very end of Spacemacs initialization."
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
    '(js-indent-level 2)
-   '(org-agenda-files '("~/repos/pers/notes/"))
    '(org-agenda-window-setup 'other-window)
    '(org-babel-load-languages '((python . t) (js . t) (emacs-lisp . t) (shell . t)))
    '(org-fold-core-style 'overlays)
