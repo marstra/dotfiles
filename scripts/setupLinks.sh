@@ -26,14 +26,13 @@ function rootCopy (){
 link zsh/.zshrc ~/.zshrc
 link zsh/.zshenv ~/.zshenv
 link zsh/.p10k.zsh ~/.p10k.zsh
-link emacs/.spacemacs ~/.spacemacs
 link emacs/.spacemacs.d ~/.spacemacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
 # link x/.xprofile ~/.xprofile
-# link i3 ~/.config/i3
+link i3 ~/.config/i3
 # link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf
-# link .config/polybar ~/.config/polybar
+link .config/polybar ~/.config/polybar
 # link idea/.ideavimrc ~/.ideavimrc
 # link vscode/keybindings.json ~/.config/Code/User/keybindings.json
 # link vscode/settings.json ~/.config/Code/User/settings.json
