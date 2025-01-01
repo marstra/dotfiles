@@ -2,6 +2,17 @@
 
 # based on https://github.com/eoli3n/arch-config/tree/master/scripts/zfs/install
 
+# TODO retrieve parameters upfront to avoid asking for them multiple times and having the script fail later on
+# TODO make platform (amd/intel) detection
+# TODO install login manager and desktop environment
+# TODO review script and make sure it's idempotent
+# TODO import and mount zpools within this script and do not rely on previous execution of partion.sh
+# TODO data and root zpool should have common parent that is lower than whole pool so snapshotting is easier
+# TODO restructure in functions
+# TODO in vm environment install guest
+# TODO figure out if iwd and wpa_supplicant is really needed in pacstrap, or if systemd-networkd is enough?
+# TODO allow encrypted root again
+
 set -e
 
 exec &> >(tee "install.log")
@@ -36,11 +47,10 @@ pacstrap /mnt       \
   linux-lts         \
   linux-lts-headers \
   linux-firmware    \
-  intel-ucode       \
+  amd-ucode         \
   efibootmgr        \
   vim               \
   git               \
-  ansible           \
   iwd               \
   wpa_supplicant
 
@@ -62,16 +72,15 @@ EOF
 
 # Prepare locales and keymap
 print "Prepare locales and keymap"
-echo "KEYMAP=fr" > /mnt/etc/vconsole.conf
-sed -i 's/#\(fr_FR.UTF-8\)/\1/' /mnt/etc/locale.gen
-echo 'LANG="fr_FR.UTF-8"' > /mnt/etc/locale.conf
+echo "KEYMAP=us" > /mnt/etc/vconsole.conf
+echo 'LANG="en_US.UTF-8"' > /mnt/etc/locale.conf
 
 # Prepare initramfs
 print "Prepare initramfs"
 cat > /mnt/etc/mkinitcpio.conf <<"EOF"
 MODULES=(i915 intel_agp)
 BINARIES=()
-FILES=(/etc/zfs/zroot.key)
+# FILES=(/etc/zfs/zroot.key)
 HOOKS=(base udev autodetect modconf block keyboard keymap zfs filesystems)
 COMPRESSION="zstd"
 EOF
@@ -86,7 +95,7 @@ EOF
 print "Copy ZFS files"
 cp /etc/hostid /mnt/etc/hostid
 cp /etc/zfs/zpool.cache /mnt/etc/zfs/zpool.cache
-cp /etc/zfs/zroot.key /mnt/etc/zfs
+# cp /etc/zfs/zroot.key /mnt/etc/zfs
 
 ### Configure username
 print 'Set your username'
@@ -133,19 +142,21 @@ EOSF
   cpanm --notest --installdeps .
 
   # Create user
-  zfs create zroot/data/home/${user}
+  # zfs create zroot/data/home/${user}
   useradd -m ${user} -G wheel
   chown -R ${user}:${user} /home/${user}
 
 EOF
 
-# Set root passwd
-print "Set root password"
-arch-chroot /mnt /bin/passwd
+# # Set root passwd
+# print "Set root password"
+# arch-chroot /mnt /bin/passwd
 
 # Set user passwd
 print "Set user password"
-arch-chroot /mnt /bin/passwd "$user"
+while ! arch-chroot /mnt /bin/passwd "$user"; do
+    echo "Password setting failed, please try again."
+done
 
 # Configure sudo
 print "Configure sudo"
@@ -246,14 +257,14 @@ Kernel:
 EOF
 
 # Set cmdline
-zfs set org.zfsbootmenu:commandline="rw quiet nowatchdog rd.vconsole.keymap=fr zswap.enabled=0" zroot/ROOT/"$root_dataset"
+zfs set org.zfsbootmenu:commandline="rw quiet nowatchdog zswap.enabled=0" zroot/ROOT/"$root_dataset"
 
 # Generate ZBM
 print 'Generate zbm'
 arch-chroot /mnt /bin/bash -xe <<"EOF"
 
   # Export locale
-  export LANG="fr_FR.UTF-8"
+  export LANG="en_US.UTF-8"
 
   # Generate zfsbootmenu
   generate-zbm

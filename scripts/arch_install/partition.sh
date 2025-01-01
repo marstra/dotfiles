@@ -89,6 +89,7 @@ create_pool () {
     
     # Create ZFS pool
     print "Create ZFS pool"
+    # todo make encryption optional
     zpool create -f -o ashift=12                          \
                  -o autotrim=on                           \
                  -O acltype=posixacl                      \
@@ -96,9 +97,9 @@ create_pool () {
                  -O relatime=on                           \
                  -O xattr=sa                              \
                  -O dnodesize=legacy                      \
-                 -O encryption=aes-256-gcm                \
-                 -O keyformat=passphrase                  \
-                 -O keylocation=file:///etc/zfs/zroot.key \
+                #  -O encryption=aes-256-gcm                \
+                #  -O keyformat=passphrase                  \
+                #  -O keylocation=file:///etc/zfs/zroot.key \
                  -O normalization=formD                   \
                  -O mountpoint=none                       \
                  -O canmount=off                          \
@@ -122,7 +123,9 @@ create_system_dataset () {
 
     # Generate zfs hostid
     print "Generate hostid"
-    zgenhostid
+    
+    # zgenhostid fails on second execution
+    zgenhostid || true
     
     # Set bootfs 
     print "Set ZFS bootfs"
@@ -146,7 +149,7 @@ export_pool () {
 import_pool () {
     print "Import zpool"
     zpool import -d /dev/disk/by-id -R /mnt zroot -N -f
-    zfs load-key zroot
+    # zfs load-key zroot
 }
 
 mount_system () {
@@ -176,7 +179,7 @@ print "Is this the first install or a second install to dualboot ?"
 install_reply=$(menu first dualboot)
 
 select_disk
-zfs_passphrase
+# zfs_passphrase
 
 # If first install
 if [[ $install_reply == "first" ]]
