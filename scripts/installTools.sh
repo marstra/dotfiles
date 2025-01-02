@@ -3,7 +3,18 @@ set -e
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt -y install git curl wget unzip build-essential net-tools
+sudo apt -y install curl wget less unzip build-essential net-tools
+
+
+function setup_git() {
+    sudo apt -y install git
+    git config --global init.defaultBranch master
+    git config --global user.email "mail@marstra.de"
+    git config --global user.name "Markus Straußberger"
+}
+
+setup_git
+
 sudo snap install btop
 sudo snap install --classic code
 sudo snap install --classic emacs

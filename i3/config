@@ -38,7 +38,7 @@ bindsym $mod+Mod1+c exec remote_clipboard set
 bindsym $mod+Mod1+v exec remote_clipboard get
 
 # start a terminal
-bindsym $mod+Return exec bash -c 'alacritty --working-directory=$(cat /tmp/whereami)'
+bindsym $mod+Return exec bash -c 'alacritty --working-directory=$(cat /tmp/whereami 2>/dev/null || echo ~)'
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -171,14 +171,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym --release $mod+i exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && import ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S).png
 
 
+# TODO make this right
 # setup ai workspace
-set $ws9 "9:AI"
-bindsym $mod+Shift+g exec --no-startup-id "google-chrome-stable --app='https://chatgpt.com/'"
-bindsym $mod+Shift+u exec --no-startup-id "google-chrome-stable --app='https://gemini.google.com/app'"
-for_window [title="ChatGPT"] move to workspace 9
-assign [title="ChatGPT"] workspace number 9
-for_window [title="Gemini"] move to workspace 9
-assign [title="Gemini"] workspace number 9
+# set $ws9 "9:AI"
+# bindsym $mod+Shift+g exec --no-startup-id "google-chrome-stable --app='https://chatgpt.com/'"
+# bindsym $mod+Shift+u exec --no-startup-id "google-chrome-stable --app='https://gemini.google.com/app'"
+# for_window [title="ChatGPT"] move to workspace 9
+# assign [title="ChatGPT"] workspace number 9
+# for_window [title="Gemini"] move to workspace 9
+# assign [title="Gemini"] workspace number 9
 
 
 # switch mouse and keyboard to next device
