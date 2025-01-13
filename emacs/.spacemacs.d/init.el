@@ -606,6 +606,8 @@ before packages are loaded."
   (setq org-priority-lowest 5)
   (setq org-priority-default 3)
 
+  (setq org-agenda-log-mode-items '(closed clock state))
+
   )
 
 
