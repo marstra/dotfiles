@@ -227,6 +227,32 @@ bindsym $mod+b mode "$keyboard_layout"
 #         position top
 #         status_command SCRIPT_DIR=~/.config/i3/i3blocks/blocklets i3blocks
 # }
+
+
+### Window Assignments
+
+# TODO make this right
+# setup ai workspace
+# set $ws9 "9:AI"
+# bindsym $mod+Shift+g exec --no-startup-id "google-chrome-stable --app='https://chatgpt.com/'"
+# bindsym $mod+Shift+u exec --no-startup-id "google-chrome-stable --app='https://gemini.google.com/app'"
+# for_window [title="ChatGPT"] move to workspace 9
+# assign [title="ChatGPT"] workspace number 9
+# for_window [title="Gemini"] move to workspace 9
+# assign [title="Gemini"] workspace number 9
+for_window [title="emacs"] move to workspace 3
+assign [title="emacs"] workspace number 3
+for_window [title="Thunderbird"] move to workspace 7
+assign [title="Thunderbird"] workspace number 7
+for_window [title="KeePassXC"] move to workspace 9
+assign [title="KeePassXC"] workspace number 9
+
+workspace 1 output DP-1
+workspace 2 output HDMI-0
+workspace 3 output HDMI-1
+
+### Autostart
+
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # set background to normal color
