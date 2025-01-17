@@ -7,3 +7,5 @@
       '(("s" "Schedule task to inbox" entry
          (file+headline "~/repos/pers/notes/Inbox.org" "Inbox")
          "* TODO %?\12SCHEDULED: %T" :jump-to-captured t)))
+
+(setq org-capture-use-agenda-date t)
