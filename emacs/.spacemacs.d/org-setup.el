@@ -9,3 +9,4 @@
          "* TODO %?\12SCHEDULED: %T" :jump-to-captured t)))
 
 (setq org-capture-use-agenda-date t)
+(setq org-agenda-show-future-repeats nil)
