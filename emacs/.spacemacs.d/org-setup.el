@@ -6,7 +6,7 @@
 (setq org-capture-templates
       '(("s" "Schedule task to inbox" entry
          (file+headline "~/repos/pers/notes/Inbox.org" "Inbox")
-         "* TODO %?\12SCHEDULED: %T" :jump-to-captured t)))
+         "* TODO [#3] %?\12SCHEDULED: %T" :jump-to-captured nil)))
 
 (setq org-capture-use-agenda-date t)
 (setq org-agenda-show-future-repeats nil)
