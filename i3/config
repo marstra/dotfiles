@@ -240,8 +240,8 @@ bindsym $mod+b mode "$keyboard_layout"
 # assign [title="ChatGPT"] workspace number 9
 # for_window [title="Gemini"] move to workspace 9
 # assign [title="Gemini"] workspace number 9
-for_window [title="emacs"] move to workspace 3
-assign [title="emacs"] workspace number 3
+# for_window [title="emacs"] move to workspace 3
+# assign [title="emacs"] workspace number 3
 for_window [title="Thunderbird"] move to workspace 7
 assign [title="Thunderbird"] workspace number 7
 for_window [title="KeePassXC"] move to workspace 9
@@ -250,6 +250,10 @@ assign [title="KeePassXC"] workspace number 9
 workspace 1 output DP-1
 workspace 2 output HDMI-0
 workspace 3 output HDMI-1
+
+
+for_window [title="^capture$"] floating enable
+bindsym $mod+x exec --no-startup-id capture.sh
 
 ### Autostart
 

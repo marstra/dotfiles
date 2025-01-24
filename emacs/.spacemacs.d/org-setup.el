@@ -24,3 +24,26 @@
   ;; Call org-clock-get-clock-string without properties for use in xbar/Kargos
   (if (org-clock-is-active)
       (princ (org-no-properties (org-clock-get-clock-string)))))
+
+(defun my/org-capture-frame-setup ()
+  "Set up a clean frame for Org Capture."
+  (when (string= (frame-parameter nil 'name) "capture")
+    ;; Delete all other windows in the frame
+    (delete-other-windows)))
+
+(add-hook 'org-capture-mode-hook #'my/org-capture-frame-setup)
+
+(defun my/make-org-capture-frame (key)
+  "Create a new frame and start org-capture with the template KEY."
+  (let ((frame (make-frame '((name . "capture")
+                             (width . 80)
+                             (height . 20)))))
+    (select-frame-set-input-focus frame)
+    (org-capture nil key)))
+
+(defun my/delete-capture-frame ()
+  "Delete the 'capture' frame once Org Capture is finished."
+  (when (string= (frame-parameter nil 'name) "capture")
+    (delete-frame)))
+
+(add-hook 'org-capture-after-finalize-hook #'my/delete-capture-frame)
