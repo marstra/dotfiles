@@ -610,14 +610,13 @@ before packages are loaded."
       "Return the repeater and effort for org-agenda-prefix-format."
       (if (and (derived-mode-p 'org-mode)
            (not (org-before-first-heading-p)))
-        (let ((effort (or (org-entry-get nil "Effort") ""))
-          (repeat (or (org-get-repeat) "")))
-        (format "%5s %4s : " repeat effort))
+        (let ((repeat (or (org-get-repeat) "")))
+          (format "%4s" repeat))
       "------")) ; else branch
 
     ;; Add `my/org-agenda-repeater' to the agenda prefix.
     (setcdr (assoc 'agenda org-agenda-prefix-format)
-            " %i %-12:c%?-12t%s%(my/org-agenda-repeater)")
+            "%i %-12c %-4e %-12t %s: %(my/org-agenda-repeater) ")
 
 
     ;; Set colors for priorities in agenda
