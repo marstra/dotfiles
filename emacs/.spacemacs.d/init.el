@@ -596,7 +596,14 @@ before packages are loaded."
   (setq org-todo-keywords
         '((sequence "TODO" "|" "DONE" )))
 
+  (with-eval-after-load 'org
+    (add-to-list 'org-modules 'org-habit t)
+    (setq org-habit-show-all-today t)
+    (setq org-habit-graph-column 80)
+    )
+
   (with-eval-after-load 'org-agenda
+
     (define-key org-agenda-mode-map (kbd "S-<down>") 'org-agenda-date-later-minutes)
     (define-key org-agenda-mode-map (kbd "S-<up>") 'org-agenda-date-earlier-minutes)
     (define-key org-agenda-mode-map (kbd "C-S-<down>") 'org-agenda-date-later-hours)
@@ -609,10 +616,10 @@ before packages are loaded."
     (defun my/org-agenda-repeater ()
       "Return the repeater and effort for org-agenda-prefix-format."
       (if (and (derived-mode-p 'org-mode)
-           (not (org-before-first-heading-p)))
-        (let ((repeat (or (org-get-repeat) "")))
-          (format "%4s" repeat))
-      "------")) ; else branch
+               (not (org-before-first-heading-p)))
+          (let ((repeat (or (org-get-repeat) "")))
+            (format "%4s" repeat))
+        "------")) ; else branch
 
     ;; Add `my/org-agenda-repeater' to the agenda prefix.
     (setcdr (assoc 'agenda org-agenda-prefix-format)
