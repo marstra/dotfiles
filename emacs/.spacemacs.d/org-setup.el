@@ -23,7 +23,7 @@
 (defun my/print-active-clock ()
   ;; Call org-clock-get-clock-string without properties for use in xbar/Kargos
   (if (org-clock-is-active)
-      (princ (org-no-properties (org-clock-get-clock-string)))))
+      (org-no-properties (org-clock-get-clock-string))))
 
 (defun my/org-capture-frame-setup ()
   "Set up a clean frame for Org Capture."
