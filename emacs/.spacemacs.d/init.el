@@ -623,7 +623,7 @@ before packages are loaded."
 
     ;; Add `my/org-agenda-repeater' to the agenda prefix.
     (setcdr (assoc 'agenda org-agenda-prefix-format)
-            "%i %-12c %-4e %-12t %s: %(my/org-agenda-repeater) ")
+            "%i  %-12c %-4e %-12t %s: %(my/org-agenda-repeater) ")
 
 
     ;; Set colors for priorities in agenda
