@@ -8,6 +8,11 @@
          (file+headline "~/repos/pers/notes/org/inbox.org" "Inbox")
          "* TODO [#3] %?\12SCHEDULED: %T" :jump-to-captured nil)))
 
+(setq org-agenda-custom-commands
+      '(("t" "Today's Scheduled Tasks"
+         ((agenda "" ((org-agenda-span 1)  ; Only show today
+                      (org-agenda-start-on-weekday nil)))))))
+
 (setq org-global-properties
       '(("Effort_ALL" . "0:05 0:10 0:15 0:30 0:45 1:00 1:30 2:00 3:00 4:00 5:00 6:00 7:00")))
 (setq org-columns-default-format
