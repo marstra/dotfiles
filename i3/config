@@ -167,19 +167,13 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+Shift+s exec "shutdown 0"
+bindsym $mod+Shift+p exec "systemctl suspend"
+# put monitors to sleep, need to wait 500ms so i3 is done finishing keyboard press before monitor is shutdown
+bindsym $mod+Shift+m exec --no-startup-id sh -c "sleep 0.5 && xset dpms force off"
+
 # make screenshot
 bindsym --release $mod+i exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && import ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S).png
-
-
-# TODO make this right
-# setup ai workspace
-# set $ws9 "9:AI"
-# bindsym $mod+Shift+g exec --no-startup-id "google-chrome-stable --app='https://chatgpt.com/'"
-# bindsym $mod+Shift+u exec --no-startup-id "google-chrome-stable --app='https://gemini.google.com/app'"
-# for_window [title="ChatGPT"] move to workspace 9
-# assign [title="ChatGPT"] workspace number 9
-# for_window [title="Gemini"] move to workspace 9
-# assign [title="Gemini"] workspace number 9
 
 
 # switch mouse and keyboard to next device
