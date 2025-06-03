@@ -590,6 +590,10 @@ before packages are loaded."
   ;; no mouse in terminal to allow selecting/copying text from terminal emulator and not inside emacs
   (xterm-mouse-mode -1)
 
+  ;; define escape sequences mapping to C-return and C-S-return as terminal emulators normally cannot detect Ctrl+(Shift+)Enter. Requires emulator to be configured to send these sequences on right button press.
+  (define-key input-decode-map "\e[27;5;13~" [C-return])
+  (define-key input-decode-map "\e[27;6;13~" [C-S-return])
+
   (when (file-exists-p "~/.spacemacs.d/org-setup.el")
     (load-file "~/.spacemacs.d/org-setup.el"))
 

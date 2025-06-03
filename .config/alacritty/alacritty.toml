@@ -1,0 +1,6 @@
+[keyboard]
+bindings = [
+  # Map Ctrl+Enter to a custom escape sequence (for Emacs -nw)
+  { key = "Return", mods = "Control", chars = "\u001b[27;5;13~" },
+  { key = "Return", mods = "Control|Shift", chars = "\u001b[27;6;13~" }
+]
