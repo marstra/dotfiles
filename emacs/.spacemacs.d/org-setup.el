@@ -9,7 +9,7 @@
          "* TODO [#3] %?\12SCHEDULED: %t" :jump-to-captured nil)))
 
 (setq org-agenda-custom-commands
-      '(("t" "Today's Scheduled Tasks"
+      '(("a" "Today's Scheduled Tasks"
          ((agenda "" ((org-agenda-span 1)  ; Only show today
                       (org-agenda-start-on-weekday nil)))))))
 
