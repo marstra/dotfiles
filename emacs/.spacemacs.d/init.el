@@ -604,6 +604,9 @@ before packages are loaded."
     (add-to-list 'org-modules 'org-habit t)
     (setq org-habit-show-all-today t)
     (setq org-habit-graph-column 80)
+
+    ;; log state changes of repeating org-tasks in :LOGBOOK: alongside time loggings
+    (setq org-log-into-drawer t)
     )
 
   (with-eval-after-load 'org-agenda
