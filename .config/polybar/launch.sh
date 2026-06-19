@@ -3,7 +3,9 @@
 set -u
 
 CONFIG=(--config="$HOME/.config/polybar/config.ini")
-LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/polybar-launch.lock"
+# Use a launcher-specific name. Polybars started by the previous version
+# inherited and permanently held the old polybar-launch.lock.
+LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/polybar-launcher.lock"
 
 exec 9>"$LOCK_FILE"
 if ! flock -n 9; then
@@ -34,6 +36,9 @@ for MONITOR in "${MONITORS[@]}"; do
   export MONITOR
   echo "start polybar on $MONITOR"
   (
+    # Do not let the long-running bar inherit the launch lock. The lock only
+    # serializes restarts and must be released when this script exits.
+    exec 9>&-
     trap - INT TERM HUP
     exec setsid polybar --reload "${CONFIG[@]}" mybar >>"/tmp/polybar_monitor_${MONITOR}.log" 2>&1 < /dev/null
   ) &
