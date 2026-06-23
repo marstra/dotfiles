@@ -561,15 +561,70 @@ See the header of this file for more information."
   (spacemacs/load-spacemacs-env)
   )
 
+(defun dotspacemacs//melpa-reachable-p ()
+  "Return non-nil when https://melpa.org answers with HTTP 200.
+The result is cached for a week under the Spacemacs cache directory so the
+network probe happens at most once per week, never on every startup."
+  (let* ((cache (expand-file-name
+                 "melpa-reachable.cache"
+                 (or (bound-and-true-p spacemacs-cache-directory)
+                     user-emacs-directory)))
+         (ttl (* 7 24 60 60)))
+    (if (and (file-readable-p cache)
+             (< (float-time
+                 (time-subtract (current-time)
+                                (file-attribute-modification-time
+                                 (file-attributes cache))))
+                ttl))
+        (string= "yes"
+                 (with-temp-buffer
+                   (insert-file-contents cache)
+                   (string-trim (buffer-string))))
+      (let ((reachable
+             (ignore-errors
+               (let* ((url-request-method "HEAD")
+                      (buf (url-retrieve-synchronously
+                            "https://melpa.org/packages/archive-contents"
+                            t t 8)))
+                 (when buf
+                   (prog1
+                       (with-current-buffer buf
+                         (goto-char (point-min))
+                         (looking-at "HTTP/[0-9.]+ 200"))
+                     (kill-buffer buf)))))))
+        (ignore-errors
+          (with-temp-file cache (insert (if reachable "yes" "no"))))
+        reachable))))
+
 (defun dotspacemacs/user-init ()
   "Initialization for user code:
 This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  ;; --- MELPA reachability fallback for locked-down corporate networks -------
+  ;; Some corporate networks sit behind a filtering proxy that blocks
+  ;; melpa.org / stable.melpa.org "for security reasons": the proxy answers the
+  ;; HTTPS request with HTTP 403 (e.g. Squid ERR_CUSTOM_WEBRADAR) instead of
+  ;; passing it through. When that happens `package.el' cannot download the
+  ;; MELPA archive-contents and *every* MELPA package fails to install with
+  ;;   "Package <x> is unavailable. Is the package name misspelled?"
+  ;; which leaves Spacemacs badly broken (e.g. org files won't even open).
+  ;; gnu/nongnu/org ELPA are usually still reachable - only MELPA is blocked.
+  ;;
+  ;; As a transparent fallback we point the "melpa" archive at the
+  ;; mirrorservice.org MELPA mirror, which such proxies typically allow.
+  ;; This is done ONLY when melpa.org is actually unreachable, so on a normal
+  ;; (home / non-corporate) network the upstream default is left completely
+  ;; untouched and this never makes the stock setup worse. Only the "melpa"
+  ;; entry is rewritten; gnu/nongnu/spacelpa (set by the Spacemacs .lock file,
+  ;; which is loaded before dotspacemacs/user-init) are preserved as-is.
+  (unless (dotspacemacs//melpa-reachable-p)
+    (setf (alist-get "melpa" configuration-layer-elpa-archives nil nil #'equal)
+          "www.mirrorservice.org/sites/melpa.org/packages/")
+    (message (concat "[spacemacs] melpa.org not reachable (corporate proxy?) - "
+                     "using mirrorservice.org MELPA mirror")))
   )
-
-
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
