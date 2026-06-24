@@ -1,0 +1,12 @@
+# lazy-lock.json pins exact plugin commit SHAs.
+# Commit it for reproducible installs across machines (recommended for dotfiles).
+# If you prefer always-latest, add it here to ignore it instead.
+# lazy-lock.json
+
+# lazyvim.json tracks which extras are toggled via :LazyExtras UI.
+# We manage extras via code (lua/plugins/extras.lua), so this stays as
+# a generated runtime file — no need to commit it.
+lazyvim.json
+
+# Local session data
+.DS_Store
