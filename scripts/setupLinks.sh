@@ -29,6 +29,7 @@ link zsh/.p10k.zsh ~/.p10k.zsh
 link emacs/.spacemacs.d ~/.spacemacs.d
 link vim/.vimrc ~/.vimrc
 link vim/.vim ~/.vim
+link nvim ~/.config/nvim
 # link x/.xprofile ~/.xprofile
 link i3 ~/.config/i3
 # link i3/i3blocks/i3blocks.conf ~/.i3blocks.conf

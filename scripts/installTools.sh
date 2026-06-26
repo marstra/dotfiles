@@ -22,6 +22,12 @@ git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
 
 sudo apt -y install vim ranger ripgrep
 
+function installNeovim() {
+    mkdir -p "$HOME/.local/bin"
+    curl -fsSL -o "$HOME/.local/bin/nvim" https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+    chmod +x "$HOME/.local/bin/nvim"
+}
+
 function install_tmux() {
     sudo apt install -y tmux
     cd $HOME
@@ -90,6 +96,7 @@ function installReversing() {
 }
 
 installZsh
+installNeovim
 installChrome
 installDocker
 installDockerCompose
