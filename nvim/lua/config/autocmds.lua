@@ -22,3 +22,12 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = true, silent = true })
   end,
 })
+
+-- octo.nvim: disable swapfile for octo:// buffers to prevent E325 errors
+-- when octo tries to programmatically write into a newly created PR/issue buffer
+autocmd("BufEnter", {
+  pattern = "octo://*",
+  callback = function()
+    vim.opt_local.swapfile = false
+  end,
+})
