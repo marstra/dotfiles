@@ -164,17 +164,12 @@ bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 15"
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+Shift+s exec "shutdown 0"
-bindsym $mod+Shift+p exec "systemctl suspend"
 # put monitors to sleep, need to wait 500ms so i3 is done finishing keyboard press before monitor is shutdown
 bindsym $mod+Shift+m exec --no-startup-id sh -c "sleep 0.5 && xset dpms force off"
 
 # make screenshot
-bindsym --release $mod+i exec --no-startup-id mkdir -p ~/Pictures/Screenshots/ && import ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H:%M:%S).png
-
+bindsym --release $mod+i exec --no-startup-id flameshot gui
 
 # switch mouse and keyboard to next device
 bindcode --release 135 exec switch_periperals.sh
@@ -250,6 +245,8 @@ for_window [title="^capture$"] floating enable
 bindsym $mod+x exec --no-startup-id capture.sh
 
 ### Autostart
+exec --no-startup-id systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
 
 exec_always --no-startup-id $HOME/.local/bin/setup_monitors.sh
 
