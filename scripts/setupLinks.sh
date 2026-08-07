@@ -39,4 +39,4 @@ link .config/alacritty ~/.config/alacritty
 # link vscode/keybindings.json ~/.config/Code/User/keybindings.json
 # link vscode/settings.json ~/.config/Code/User/settings.json
 
-# link scripts/monitors/setup_monitors.sh ~/.local/bin/setup_monitors.sh
+link scripts/monitors/setup_monitors.sh ~/.local/bin/setup_monitors.sh
