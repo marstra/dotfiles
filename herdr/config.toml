@@ -1,0 +1,10 @@
+[keys]
+prefix = "ctrl+a"
+
+[terminal]
+default_shell = "zsh"
+shell_mode = "non_login"
+new_cwd = "current"
+
+[theme]
+name = "terminal"

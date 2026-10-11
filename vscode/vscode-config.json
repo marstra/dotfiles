@@ -1,0 +1,27 @@
+{
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "none",
+    "extensions.autoUpdate": false,
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "extensions.autoCheckUpdates": false,
+    "update.showReleaseNotes": false,
+    "json.schemaDownload.enable": false,
+    "settingsSync.keybindingsPerPlatform": false,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "npm.fetchOnlinePackageInfo": false,
+    "workbench.colorTheme": "Default Light Modern",
+    "sonarlint.connectedMode.connections.sonarcloud": [
+        {
+            "organizationKey": "datevscm",
+            "connectionId": "datevscm",
+            "region": "EU"
+        }
+    ],
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.easymotion": true
+}

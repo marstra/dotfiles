@@ -690,13 +690,13 @@ before packages are loaded."
 
     ;; Set colors for priorities in agenda
     (setq org-agenda-fontify-priorities t)
-    ;; ASCI value of '1' is 49, see emacs colors: https://www.raebear.net/computers/emacs-colors/
+    ;; org-priority-to-value returns integers (1,2,...) in org 9.6+, not ASCII char codes
     (setq org-priority-faces
-          '((49 . (:foreground "tomato" :weight bold))    ;; 1
-            (50 . (:foreground "dark salmon"))            ;; 2
-            (51 . (:foreground "burlywood2"))             ;; 3
-            (52 . (:foreground "grey72"))                 ;; 4
-            (53 . (:foreground "grey40"))))               ;; 5
+          '((1 . (:foreground "tomato" :weight bold))
+            (2 . (:foreground "dark salmon"))
+            (3 . (:foreground "burlywood2"))
+            (4 . (:foreground "grey72"))
+            (5 . (:foreground "grey40"))))
     )
 
   (setq org-priority-highest 1)
