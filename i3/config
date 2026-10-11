@@ -167,8 +167,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+Shift+s exec "shutdown 0"
-bindsym $mod+Shift+p exec "systemctl suspend"
+# bindsym $mod+Shift+s exec "shutdown 0"
+# bindsym $mod+Shift+p exec "systemctl suspend"
 # put monitors to sleep, need to wait 500ms so i3 is done finishing keyboard press before monitor is shutdown
 bindsym $mod+Shift+m exec --no-startup-id sh -c "sleep 0.5 && xset dpms force off"
 
